@@ -6,12 +6,27 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.Executors;
 
+/**
+ * The TcpOutputStrategy class implements the OutputStrategy interface for TCP to output.
+ *
+ * <p><strong>Overview:</strong></p>
+ * This establishes a TCP server to listen for client connections and then sends data to the connected clients.
+ *
+ * <p><strong>Usage:</strong></p>
+ * This class is to be used by the main application or by data processing components to establish a TCP server
+ * for sending the data to the clients.
+ */
 public class TcpOutputStrategy implements OutputStrategy {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private PrintWriter out;
 
+    /**
+     * TcpOutputStrategy constructor listens listen to the port of the incomming connection.
+     *
+     * @param port Is the port number where the TCP server will check for any incoming connections.
+     */
     public TcpOutputStrategy(int port) {
         try {
             serverSocket = new ServerSocket(port);
@@ -32,6 +47,14 @@ public class TcpOutputStrategy implements OutputStrategy {
         }
     }
 
+    /**
+     * Outputs data over the TCP connection to the given connected client.
+     *
+     * @param patientId ID of the patient which is related to the data
+     * @param timestamp Time the data was retrieved
+     * @param label     Is the label or type of data retrieved
+     * @param data      The actual data which is going to be transfered
+     */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
         if (out != null) {
