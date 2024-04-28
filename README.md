@@ -66,3 +66,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Project Members
 - Student ID: 6359162
+
+## Link to pdf
+- file:///C:/Users/mertb/Downloads/Task1-SE-Tut2.pdf
