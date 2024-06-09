@@ -15,7 +15,7 @@ public class AlertGenerator implements PatientDataGenerator {
     /**
      * AlertGenerator Constructor with a number of patients
      *
-     * @param patientCount The number of patients for which alert data will be generated
+     * @param patientCount the number of patients for which alert data will be generated.
      */
     public AlertGenerator(int patientCount) {
         alertStates = new boolean[patientCount + 1];
@@ -24,8 +24,8 @@ public class AlertGenerator implements PatientDataGenerator {
     /**
      * Generates the alert data for the specific patient and outputs it using the output strategy
      *
-     * @param patientId      The ID of the patient which alert data is being generated for
-     * @param outputStrategy The output strategy used to output the generated alert data
+     * @param patientId ID of the patient which the alert data is being generated for
+     * @param outputStrategy the output strategy used to output the generated alert data
      */
     @Override
     public void generate(int patientId, OutputStrategy outputStrategy) {

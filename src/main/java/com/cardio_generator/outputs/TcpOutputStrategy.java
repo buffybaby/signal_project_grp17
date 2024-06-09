@@ -23,7 +23,7 @@ public class TcpOutputStrategy implements OutputStrategy {
     private PrintWriter out;
 
     /**
-     * TcpOutputStrategy constructor listens listen to the port of the incomming connection.
+     * TcpOutputStrategy constructor listens for any incomming connection on the specified port.
      *
      * @param port Is the port number where the TCP server will check for any incoming connections.
      */
@@ -51,9 +51,9 @@ public class TcpOutputStrategy implements OutputStrategy {
      * Outputs data over the TCP connection to the given connected client.
      *
      * @param patientId ID of the patient which is related to the data
-     * @param timestamp Time the data was retrieved
-     * @param label     Is the label or type of data retrieved
-     * @param data      The actual data which is going to be transfered
+     * @param timestamp time that the data was retrieved
+     * @param label is the label or type of data retrieved
+     * @param data the actual data which is going to be transfered
      */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {

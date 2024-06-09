@@ -23,7 +23,7 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
     /**
      * Constructs a new BloodSaturationDataGenerator with the given number of patients.
      *
-     * @param patientCount The number of given patients which blood saturation data will be generated.
+     * @param patientCount number of patients whose blood saturation data will be generated.
      */
     public BloodSaturationDataGenerator(int patientCount) {
         lastSaturationValues = new int[patientCount + 1];
@@ -38,7 +38,7 @@ public class BloodSaturationDataGenerator implements PatientDataGenerator {
      * Generates blood saturation data for the specific given patient and then outputs it using provided
      * output strategy.
      *
-     * @param patientId is the ID of the patient for which the data is being generated for.
+     * @param patientId ID of the patient for which the data is being generated for.
      * @param outputStrategy the output strategy to use for displaying or saving the generated data.
      */
     @Override

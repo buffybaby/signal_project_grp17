@@ -10,6 +10,7 @@ public class Alert {
         this.patientId = patientId;
         this.condition = condition;
         this.timestamp = timestamp;
+
     }
 
     public String getPatientId() {

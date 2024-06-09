@@ -2,6 +2,9 @@ package com.alerts;
 
 import com.data_management.DataStorage;
 import com.data_management.Patient;
+import com.data_management.PatientRecord;
+
+import java.util.List;
 
 /**
  * The {@code AlertGenerator} class is responsible for monitoring patient data
@@ -36,6 +39,58 @@ public class AlertGenerator {
      */
     public void evaluateData(Patient patient) {
         // Implementation goes here
+        List<PatientRecord> records = patient.getRecords(Long.MIN_VALUE, Long.MAX_VALUE);
+        checkBloodPressureAlerts(patient, records);
+        checkBloodSaturationAlerts(patient, records);
+        checkECGAlerts(patient, records)
+    }
+
+    private void checkBloodPressureAlerts(Patient patient, List<PatientRecord> records) {
+        double previousSystolic = 0;
+        double previousDiastolic = 0;
+        int trendCount = 0;
+
+        for (PatientRecord record : records) {
+            if (record.getRecordType().equals("BloodPressure")) {
+                double systolic = record.getMeasurementValue(); // Assuming systolic value
+                double diastolic = record.getMeasurementValue(); // Assuming diastolic value
+
+                if (systolic > 180 || systolic < 90 || diastolic > 120 || diastolic < 60) {
+                    triggerAlert(new Alert(Integer.toString(patient.getPatientId()), "Critical Blood Pressure", record.getTimestamp()));
+                }
+
+                if (previousSystolic != 0 && Math.abs(systolic - previousSystolic) > 10) {
+                    trendCount++;
+                } else {
+                    trendCount = 0;
+                }
+
+                if (trendCount >= 3) {
+                    triggerAlert(new Alert(Integer.toString(patient.getPatientId()), "Blood Pressure Trend", record.getTimestamp()));
+                    trendCount = 0;
+                }
+
+                previousSystolic = systolic;
+                previousDiastolic = diastolic;
+            }
+        }
+    }
+
+    private void checkBloodSaturationAlerts(Patient patient, List<PatientRecord> records) {
+        for (PatientRecord record : records) {
+            if (record.getRecordType().equals("BloodSaturation")) {
+                double saturation = record.getMeasurementValue();
+
+                if (saturation < 92) {
+                    triggerAlert(new Alert(Integer.toString(patient.getPatientId()), "Low Blood Saturation", record.getTimestamp()));
+                }
+
+            }
+        }
+    }
+
+    private void checkECGAlerts(Patient patient, List<PatientRecord> records) {
+        // Implement ECG alert logic
     }
 
     /**
@@ -48,5 +103,8 @@ public class AlertGenerator {
      */
     private void triggerAlert(Alert alert) {
         // Implementation might involve logging the alert or notifying staff
+        System.out.println("Alert triggered for Patient ID: " + alert.getPatientId() +
+                ", Condition: " + alert.getCondition() +
+                ", Timestamp: " + alert.getTimestamp());
     }
 }

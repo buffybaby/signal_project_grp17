@@ -34,7 +34,7 @@ public class FileOutputStrategy implements OutputStrategy {
     /**
      * Constructs a new FileOutputStrategy with the given base directory.
      *
-     * @param baseDirectory The base directory where the output files will be stored.
+     * @param baseDirectory the base directory where the output files will be stored.
      */
     public FileOutputStrategy(String baseDirectory) { // uppercase naming
         this.baseDirectory = baseDirectory; // changed to camelCase format
@@ -43,12 +43,11 @@ public class FileOutputStrategy implements OutputStrategy {
     /**
      * Outputs patient data based on the provided parameters to a file.
      *
-     * @param patientId The ID of the patient which the data is being outputted.
-     * @param timestamp The timestamp showing when the data was recorded.
-     * @param label     The label describing the category or the given type of data.
-     * @param data      The actual data which is to be outputted.
-     *
-     * @throws IOException if an I/O error occurs while creation of directories or writing to the file.
+     * @param patientId is the ID of the patient whose data is being outputted.
+     * @param timestamp shows the timestamp when the data was recorded.
+     * @param label a label describing the category or the given type of data
+     * @param data the actual data which is to be outputted
+     * @throws IOException incase an I/O error occurs while creation of directories or writing to the file
      */
     @Override
     public void output(int patientId, long timestamp, String label, String data) {
