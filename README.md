@@ -68,4 +68,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Student ID: 6359162
 
 ## Link to pdf
-- file:///C:/Users/mertb/Downloads/Task1-SE-Tut2.pdf
+https://github.com/buffybaby/signal_project_grp17/blob/master/UML%20diagrams/SE-week2.pdf
