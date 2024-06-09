@@ -9,16 +9,17 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * The FileOutputStrategy class implements the OutputStrategy interface and provides functional output
- *  for patients data to the file.
+ * for patients data to the file.
  *
- * <p><strong>Overview:</strong></p>
  * This class defines the methods to output the patient data to a given file.
- * It utilizes the base directory to store the output files and a ConcurrentHashMap to manage the given
+ * It uses the base directory to store the output files and a ConcurrentHashMap to manage the given
  * file paths based on the data labels.
  *
- * <p><strong>Usage:</strong></p>
  * This class is intended to be used by classes that require a file-based output for the patient data, such as
  * data generators or data processors.
+ * 
+ * @see OutputStrategy
+ * @see ConcurrentHashMap
  */
 
 // Good practice to have classes named with an uppercase letter

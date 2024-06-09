@@ -9,12 +9,14 @@ import java.util.concurrent.Executors;
 /**
  * The TcpOutputStrategy class implements the OutputStrategy interface for TCP to output.
  *
- * <p><strong>Overview:</strong></p>
  * This establishes a TCP server to listen for client connections and then sends data to the connected clients.
  *
- * <p><strong>Usage:</strong></p>
  * This class is to be used by the main application or by data processing components to establish a TCP server
  * for sending the data to the clients.
+ * 
+ * @see OutputStrategy
+ * @see ServerSocket
+ * @see Socket
  */
 public class TcpOutputStrategy implements OutputStrategy {
 
